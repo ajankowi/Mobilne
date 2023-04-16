@@ -2,13 +2,10 @@
 <html>
 <body>
 
-    <p>Click the button to get your coordinates.</p>
-    <div>
-        <br />
-        <a class="button button1" asp-action="CityStateCountByIp">Get location</a>
-    </div>
+    <p>Wyszukaj pozycje pracownika na mapie</p>
+    
 
-    <button onclick="getLocation()">Try It</button>
+    <button class="button button1" onclick="getLocation(); toggleText()">Pokaż mapę</button>
 
     <p id="location"></p>
 
@@ -17,12 +14,16 @@
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyB4zP9qbNIRCJRhZkZwsbv352CzOFocs2o"></script>
     <script>
 
-
-
         var x = document.getElementById("location");
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(showPosition, showError);
+                navigator.geolocation.watchPosition((position) => {
+                    const lat = position.coords.latitude; 
+                    const lon = position.coords.longitude;
+                    document.getElementById('latitude').textContent = lat;
+                    document.getElementById('longtitude').textContent = lon;
+                });
             }
             else { x.innerHTML = "Geolocation is not supported by this browser."; }
         }
@@ -61,7 +62,28 @@
                     break;
             }
         }
+
+        function toggleText() {
+            var text1 = document.getElementById("coords1");
+            var text2 = document.getElementById("coords2");
+            if (text1.style.display === "none") {
+                text1.style.display = "block";
+            } else {
+                text1.style.display = "none";
+            }
+            if (text2.style.display === "none") {
+                text2.style.display = "block";
+            } else {
+                text2.style.display = "none";
+            }
+        }
     </script>
+    <br />
+    <h4 id ='coords1' style='display: none'>Współrzędne</h4>
+    <p id='coords2' style='display: none'>
+        Szerokość: <span id="latitude"></span><br />
+        Długość: <span id="longtitude"></span><br />
+    </p>
     
 </body>
 </html>
