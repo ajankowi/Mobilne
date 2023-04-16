@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -24,9 +25,9 @@ namespace Weterynarze.Controllers
         // GET: Vets
         public async Task<IActionResult> Index()
         {
-              return _context.Vet != null ? 
-                          View(await _context.Vet.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
+            return _context.Vet != null ?
+                        View(await _context.Vet.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
         }
 
         public async Task<IActionResult> Location()
@@ -84,6 +85,7 @@ namespace Weterynarze.Controllers
         }
 
         // GET: Vets/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();

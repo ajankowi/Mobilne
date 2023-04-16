@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "A:\\VisualStudio\\Projects\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\Weterynarze.csproj": {}
+    "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\Weterynarze.csproj": {}
   },
   "projects": {
-    "A:\\VisualStudio\\Projects\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\Weterynarze.csproj": {
+    "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\Weterynarze.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\VisualStudio\\Projects\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\Weterynarze.csproj",
+        "projectUniqueName": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\Weterynarze.csproj",
         "projectName": "Weterynarze",
-        "projectPath": "A:\\VisualStudio\\Projects\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\Weterynarze.csproj",
-        "packagesPath": "C:\\Users\\Matek\\.nuget\\packages\\",
-        "outputPath": "A:\\VisualStudio\\Projects\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\obj\\",
+        "projectPath": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\Weterynarze.csproj",
+        "packagesPath": "C:\\Users\\adamj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Matek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adamj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -91,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
