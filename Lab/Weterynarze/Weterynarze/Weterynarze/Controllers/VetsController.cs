@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using Weterynarze.Data;
 using Weterynarze.Models;
 
@@ -25,6 +27,42 @@ namespace Weterynarze.Controllers
               return _context.Vet != null ? 
                           View(await _context.Vet.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
+        }
+
+        public async Task<IActionResult> Location()
+        {
+            return _context.Vet != null ?
+                        View(await _context.Vet.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
+        }
+
+        public static string CityStateCountByIp(string IP)
+        {
+            //var url = "http://freegeoip.net/json/" + IP;
+            //var url = "http://freegeoip.net/json/" + IP;
+            string url = "http://api.ipstack.com/" + IP + "?access_key=[7eb55775f303365894f741db574c7eaa]";
+            var request = System.Net.WebRequest.Create(url);
+
+            using (WebResponse wrs = request.GetResponse())
+            {
+                using (Stream stream = wrs.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string json = reader.ReadToEnd();
+                        var obj = JObject.Parse(json);
+                        string City = (string)obj["city"];
+                        string Country = (string)obj["region_name"];
+                        string CountryCode = (string)obj["country_code"];
+
+                        return (CountryCode + " - " + Country + "," + City);
+                    }
+                }
+            }
+
+
+            return "";
+
         }
 
         // GET: Vets/Details/5
