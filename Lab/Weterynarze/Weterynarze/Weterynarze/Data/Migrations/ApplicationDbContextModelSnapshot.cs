@@ -251,6 +251,10 @@ namespace Weterynarze.Data.Migrations
                     b.Property<int>("Priorytet")
                         .HasColumnType("int");
 
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Zwierze")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
