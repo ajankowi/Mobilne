@@ -1,4 +1,9 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInMenager
+@inject UserManager<IdentityUser> UserMenager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,3 +15,12 @@
     <partial name="_LoginPartial" />
 
 </div>
+
+
+@if(User.IsInRole("Admin")){
+
+    <h1>Hi Admin!</h1>
+}else{
+
+
+}
