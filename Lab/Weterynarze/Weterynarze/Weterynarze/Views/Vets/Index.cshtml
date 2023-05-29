@@ -7,7 +7,11 @@
 <h1>Wszystkie zlecenia</h1>
 
 <p>
-    <a class="button button1" asp-action="Create">Utwórz zlecenie</a>
+    @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor"))
+    {
+        <a class="button button1" asp-action="Create">Utwórz zlecenie</a>
+    }
+    
 </p>
 <table class="table">
     <thead>
@@ -56,9 +60,20 @@
                     @Html.DisplayFor(modelItem => item.Priorytet)
                 </td>
                 <td>
-                    <a class="button button1 zsize" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
-                    <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
-                    <a class="button button1 zsize" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor"))
+                    {
+                        <a class="button button1 zsize" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                        <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                        <a class="button button1 zsize" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                    }
+                    else if (User.IsInRole("Weterynarz"))
+                    {
+                        <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                    }
+
+
+
+
                 </td>
             </tr>
         }

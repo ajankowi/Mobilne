@@ -28,9 +28,9 @@ namespace MyProjectNamespace
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("AdminOnly", policy => policy.RequireRole("Administrator"));
-                options.AddPolicy("AdminOrDistributor", policy => policy.RequireRole("Administrator", "Dystrybutor"));
-                options.AddPolicy("AdminOrEmployee", policy => policy.RequireRole("Administrator", "Weterynarz"));
+                options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("AdminOrDistributor", policy => policy.RequireRole("Admin", "Dystrybutor"));
+                options.AddPolicy("AdminOrEmployee", policy => policy.RequireRole("Admin", "Weterynarz"));
             });
 
         }

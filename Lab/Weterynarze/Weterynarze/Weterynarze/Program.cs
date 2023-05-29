@@ -67,7 +67,14 @@ using (var scope = app.Services.CreateScope())
     string email = "admin@admin.com";
     string password = "Admin1234,";
 
+    string email_1 = "dyst@dyst.com";
+    string password_1 = "Dyst1234,";
 
+    string email_2 = "wet@wet.com";
+    string password_2 = "Wet1234,";
+
+
+    //Tworzenie konta admina
     if (await userManager.FindByEmailAsync(email) == null) {
 
         var user = new IdentityUser();
@@ -81,6 +88,44 @@ using (var scope = app.Services.CreateScope())
         await userManager.AddToRoleAsync(user,"Admin");
 
     }
+
+
+    //Tworzenie konta dystrybutora
+    
+
+    if (await userManager.FindByEmailAsync(email_1) == null) {
+
+        var user = new IdentityUser();
+
+        user.UserName = email_1;
+        user.Email = email_1;
+        user.EmailConfirmed = true;
+    
+        await userManager.CreateAsync (user,password_1);
+
+        await userManager.AddToRoleAsync(user, "Dystrybutor");
+
+    }
+
+
+    //Tworzenie konta dystrybutora
+
+
+    if (await userManager.FindByEmailAsync(email_2) == null)
+    {
+
+        var user = new IdentityUser();
+
+        user.UserName = email_2;
+        user.Email = email_2;
+        user.EmailConfirmed = true;
+
+        await userManager.CreateAsync(user, password_2);
+
+        await userManager.AddToRoleAsync(user, "Weterynarz");
+
+    }
+
 
 }
 

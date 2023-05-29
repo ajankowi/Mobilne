@@ -4,3 +4,36 @@
 <h1 style="color:black">@ViewData["Title"]</h1>
 
 <p style="color:black">Polityka porywatności.</pstyle>
+
+
+
+
+@*Moje wypociny*@
+
+<form>
+    <label>Adress</label>
+    <input type="text" name="address" id="address" onchange="getCoordinates()">
+    <br>
+    <label>Latitude</label>
+    <input type="text" name="lat" id="lat">
+    <br>
+    <label>Longitude</label>
+    <input type="text" name="lng" id="lng">
+</form>
+
+<script type="text/javascript">
+        function getCoordinates(){
+            
+            var address = document.getElementById('address').value;
+            var theUrl = 'https://geocoder.ls.hereapi.com/6.2/geocode.json?searchtext=Berlin&gen=9&apiKey=chDMQRlDRv0KngLYo3sXcOtNBESgx1eEU199e4Z1B7U';
+            var xmlHttp = new XMLHttpRequest();
+
+            xmlHttp.open("GET", theUrl, false);
+            xmlHttp.send(null);
+
+            var json = JSON.parse(xmlHttp.responseText);
+
+            document.getElementById('lat').ariaValueMax = json.Response.View[0].Result[0].Location.DisplayPosition.Latitude;
+            document.getElementById('lng').ariaValueMax = json.Response.View[0].Result[0].Location.DisplayPosition.Longitude;
+        }
+</script>

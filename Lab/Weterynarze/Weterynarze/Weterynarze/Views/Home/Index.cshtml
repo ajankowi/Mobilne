@@ -12,15 +12,18 @@
     <h1 class="display-4 back" style="color:black">Witaj na stronie weterynarzy PetMobile</h1>
     <p style="color:black">Mobilny system dla weterynarzy.</p>
 
+    @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor") || User.IsInRole("Weterynarz"))
+    {
+        <h1>Hi Admin!</h1>
+    }
+    else
+    {
+
+
+    }
+
     <partial name="_LoginPartial" />
 
 </div>
 
 
-@if(User.IsInRole("Admin")){
-
-    <h1>Hi Admin!</h1>
-}else{
-
-
-}

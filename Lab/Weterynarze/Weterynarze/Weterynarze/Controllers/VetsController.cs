@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using Weterynarze.Data;
 using Weterynarze.Models;
+using System.Data;
+using System.Drawing;
 
 namespace Weterynarze.Controllers
 {
@@ -37,6 +39,41 @@ namespace Weterynarze.Controllers
                         View(await _context.Vet.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
         }
+
+
+        public string getCoordinatesFromAddress(string addr)
+        {
+            var url = "https://geocoder.ls.hereapi.com/6.2/geocode.json?searchtext=" +
+                    addr +
+                    "&gen=" + 9 +
+                    "&apiKey=chDMQRlDRv0KngLYo3sXcOtNBESgx1eEU199e4Z1B7U";
+
+
+            var request = WebRequest.Create(url);
+
+            using (WebResponse wrs = request.GetResponse())
+            {
+                using (Stream stream = wrs.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string json = reader.ReadToEnd();
+                        var obj = JObject.Parse(json);
+                        string Latitude = (string)obj["Latitude"];
+                        string Longitude = (string)obj["Longitude"];
+
+                       
+                        return (Latitude + Longitude);
+                    }
+                }
+            }
+
+        }
+
+
+
+
+
 
         public static string CityStateCountByIp(string IP)
         {
@@ -87,6 +124,8 @@ namespace Weterynarze.Controllers
 
         // GET: Vets/Create
        
+
+
         public IActionResult Create()
         {
             return View();

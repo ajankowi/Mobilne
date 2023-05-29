@@ -48,7 +48,11 @@
     </dl>
 </div>
 <div>
-    <a class="button button1" asp-action="Edit" asp-route-id="@Model?.Id">Edytuj</a>
-    <br />
+    @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor"))
+    {
+        <a class="button button1" asp-action="Create">Utwórz zlecenie</a>
+        <a class="button button1" asp-action="Edit" asp-route-id="@Model?.Id">Edytuj</a>
+        <br />
+    }
     <a class="button button1" asp-action="Index">Powrót</a>
 </div>

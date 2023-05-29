@@ -24,7 +24,7 @@ namespace Weterynarze.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Privacy()
         {
             return View();
