@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Realtime location tracker</title>
+
 
     <!-- leaflet css  -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
@@ -56,19 +56,21 @@
 
     var marker, circle;
 
-    var p1 = L.latLng(51.14739, 17.08029);
-    var p2 = L.latLng(52.28740, 20.98583);
 
- 
+    var p1 = L.latLng(51.14739, 17.08029);
+    var p2 = L.latLng(50.7964600, 19.1240900);
+    var p3 = L.latLng(52.28740, 20.98583);
+    const points = [p1, p2, p3];
+
 
     //Moje zmiany
 
     var searchText = "Wiedeń";
 
-    var p3 = L.latLng(12, 40);
+    var p4 = L.latLng(12, 40);
 
     document.addEventListener("DOMContentLoaded", function () {
-          
+
         var params = new URLSearchParams();
 
         params.append("searchText", searchText);
@@ -78,11 +80,11 @@
             .then(response => response.json())
             .then(data => {
                 // Otrzymane dane są dostępne tutaj
-                console.log(data);   
+                console.log(data);
 
-                p3 = L.latLng(data.latitude, data.longitude);
+                p4 = L.latLng(data.latitude, data.longitude);
 
-                console.log(p3);
+                console.log(p4);
 
 
             })
@@ -96,9 +98,7 @@
 
 
 
-    const points = [p1, p2];
-
-    //console.log("test: " + points[0] + ", " + points[1])
+    console.log("test: " + points[0] + ", " + points[1])
 
     function getPosition(position) {
         // console.log(position)
@@ -123,23 +123,38 @@
 
         console.log("Your coordinate is: Lat: " + lat + " Long: " + long + " Accuracy: " + accuracy)
 
+        const points_1 = [
+            [lat, long],
+            [50.79646, 19.12409],
+            [51.14739, 17.08029],
+            [52.28740, 20.98583],
+        ];
+
+        const { route, distance } = findShortestRoute(points_1);
+        console.log('Najkrótsza trasa:', route);
+        console.log('Długość trasy:', distance);
+
+        console.log("Punkt 1: ", route[0]);
+        console.log("Punkt 2: ", route[1]);
+        console.log("Punkt 3: ", route[2]);
+        console.log("Punkt 4: ", route[3]);
+
+
+
         L.Routing.control({
             waypoints: [
-                L.latLng(lat, long),
-                L.latLng(points[0]),
-                L.latLng(points[1])
-
-            ]
+                L.latLng(points_1[route[0]]),
+                L.latLng(points_1[route[1]]),
+                L.latLng(points_1[route[2]]),
+                L.latLng(points_1[route[3]])]
         }).addTo(map);
 
         //var distance = getDistance([p1.lat, p1.lng], [p2.lat, p2.lng])
 
 
-        var distance = getDistance([points[0].lat, points[0].lng], [points[1].lat, points[1].lng])
+        //var distance = getDistance([points[0].lat, points[0].lng], [points[1].lat, points[1].lng])
 
-        console.log("distance = " + distance)
-
-
+        //console.log("distance = " + distance)
     }
 
 
@@ -164,6 +179,69 @@
     }
 
 
+    function findShortestRoute(points_1) {
+        const numPoints = points_1.length;
+        const visited = new Array(numPoints).fill(false);
+        visited[0] = true;
+
+        const route = [0]; // Początkowy punkt A
+        let currentPoint = 0;
+        let shortestDistance = 0;
+
+        for (let i = 0; i < numPoints - 1; i++) {
+            let nearestPoint = -1;
+            let shortestDistanceToNext = Infinity;
+
+            for (let j = 1; j < numPoints; j++) {
+                if (!visited[j]) {
+                    const distance = getDistance(points_1[currentPoint], points_1[j]);
+
+                    if (distance < shortestDistanceToNext) {
+                        shortestDistanceToNext = distance;
+                        nearestPoint = j;
+                    }
+                }
+            }
+
+            visited[nearestPoint] = true;
+            route.push(nearestPoint);
+            currentPoint = nearestPoint;
+            shortestDistance += shortestDistanceToNext;
+        }
+
+        return { route, distance: shortestDistance };
+    }
 
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

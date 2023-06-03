@@ -1,4 +1,7 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿<!DOCTYPE html>
+
+
+@using Microsoft.AspNetCore.Identity
 
 @inject SignInManager<IdentityUser> SignInMenager
 @inject UserManager<IdentityUser> UserMenager
@@ -7,23 +10,392 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <br />
-    <h1 class="display-4 back" style="color:black">Witaj na stronie weterynarzy PetMobile</h1>
-    <p style="color:black">Mobilny system dla weterynarzy.</p>
+@if (User.IsInRole("Admin"))
+{
 
-    @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor") || User.IsInRole("Weterynarz"))
-    {
-        <h1>Hi Admin!</h1>
-    }
-    else
-    {
+    <h1>Hi Admin!</h1>
+}
+else
+{
 
 
-    }
+}
+<html>
 
-    <partial name="_LoginPartial" />
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-</div>
+    <title>PetMobile</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 offset-md-2">
+                                <div class="slider_detail-box">
+                                    <h1>
+                                        Professional
+                                        <span>
+                                            Care For Your Pet
+                                        </span>
+                                    </h1>
+                                    <p>
+                                        We provide quick and professional response to any problem your beloved pet might have.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="slider_img-box">
+                                    <img src="images/slider-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 offset-md-2">
+                                <div class="slider_detail-box">
+                                    <h1>
+                                        Years
+                                        <span>
+                                            Of Experience
+                                        </span>
+                                    </h1>
+                                    <p>
+                                        Our clinic has been running for years giving us the experience you and your pet needs. Our team is build with very professional and dedicated vets.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn-1">
+                                            Buy now
+                                        </a>
+                                        <a href="" class="btn-2">
+                                            Contact
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="slider_img-box">
+                                    <img src="images/slider-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- end slider section -->
+    </div>
+
+    <!-- about section -->
+
+    <section class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="img-box">
+                        <img src="images/about.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <h2 class="custom_heading">
+                            About Our Pets
+                            <span>
+                                Clinic
+                            </span>
+                        </h2>
+                        <p>
+                            PetMobile is a mobile veterinary clinic focused on providing help to pets in need with as high of a degree of professionalism and as quick as possible. We try to work with only the best vets providing our clients with the highest quality medical service for all kinds of pets. And with the help of the technology available to our vets we have been accomplishing that goal for years.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- service section -->
+    <section class="service_section layout_padding">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 offset-md-2">
+                    <h2 class="custom_heading">
+                        Our <span>Services</span>
+                    </h2>
+                    <div class="container layout_padding2">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="img_box">
+                                    <img src="images/s-1.png" alt="">
+                                </div>
+                                <div class="detail_box">
+                                    <h6>
+                                        Pet Care
+                                    </h6>
+                                    <p>
+                                        Insuring your pet is always healthy and in the best shape.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="img_box">
+                                    <img src="images/s-2.png" alt="">
+                                </div>
+                                <div class="detail_box">
+                                    <h6>
+                                        Pet Store
+                                    </h6>
+                                    <p>
+                                        A store with everything your pet would ever want. From amazing, healthy food to fun toys.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="img_box">
+                                    <img src="images/s-3.png" alt="">
+                                </div>
+                                <div class="detail_box">
+                                    <h6>
+                                        Emergency
+                                    </h6>
+                                    <p>
+                                        Responding to emergencies thanks to our priority system and always available and redy to help professional vets.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="images/tool.png" alt="" class="w-100">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end service section -->
+    <!-- gallery section -->
+    <section class="gallery-section layout_padding">
+        <div class="container">
+            <h2>
+                Our Gallery
+            </h2>
+        </div>
+        <div class="container ">
+            <div class="img_box box-1">
+                <img src="images/g-1.png" alt="">
+            </div>
+            <div class="img_box box-2">
+                <img src="images/g-2.png" alt="">
+            </div>
+            <div class="img_box box-3">
+                <img src="images/g-7.png" alt="">
+            </div>
+            <div class="img_box box-4">
+                <img src="images/g-4.png" alt="">
+            </div>
+            <div class="img_box box-5">
+                <img src="images/g-6.png" alt="">
+            </div>
+        </div>
+    </section>
 
 
+
+
+
+    <!-- client section -->
+    <section class="client_section layout_padding-bottom">
+        <div class="container">
+            <br />
+            <h2 class="custom_heading text-center">
+                What Say Our
+                <span>
+                    clients
+                </span>
+            </h2>
+            <p class="text-center">
+                orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la
+            </p>
+            <div id="carouselExample2Indicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExample2Indicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExample2Indicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExample2Indicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="layout_padding2 pl-100">
+                            <div class="client_container ">
+                                <div class="img_box">
+                                    <img src="images/client.jpg" alt="">
+                                </div>
+                                <div class="detail_box">
+                                    <h5>
+                                        Sandy Mark
+                                    </h5>
+                                    <p>
+                                        Very professional and fast service. My puppy never felt better! :D
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="layout_padding2 pl-100">
+                            <div class="client_container ">
+                                <div class="img_box">
+                                    <img src="images/client.jpg" alt="">
+                                </div>
+                                <div class="detail_box">
+                                    <h5>
+                                        Sandy Mark
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                        et
+                                        dolore
+                                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                        ea
+                                        commodo
+                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="layout_padding2 pl-100">
+                            <div class="client_container ">
+                                <div class="img_box">
+                                    <img src="images/client.jpg" alt="">
+                                </div>
+                                <div class="detail_box">
+                                    <h5>
+                                        Sandy Mark
+                                    </h5>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                        et
+                                        dolore
+                                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                        ea
+                                        commodo
+                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <!-- info section -->
+    <section class="info_section layout_padding2">
+        <div class="container">
+            <div class="info_items">
+                <a nav-link" asp-area="" asp-controller="Vets" asp-action="ClinicLocation">
+                    <div class="item ">
+                        <div class="img-box box-1">
+                            <img src="" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <p>
+                                Clinic Location
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="item ">
+                        <div class="img-box box-2">
+                            <img src="" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <p>
+                                +48 123568934
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="item ">
+                        <div class="img-box box-3">
+                            <img src="" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <p>
+                                petmobile@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- end info_section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+        <p>
+            &copy; 2023 - Weterynarze - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a href="https://html.design/"></a>
+        </p>
+    </section>
+    <!-- footer section -->
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+
+</body>
+
+
+</html>

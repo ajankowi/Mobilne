@@ -5,12 +5,144 @@
       "PackagePath": "staticwebassets\\Weterynarze.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\css\\responsive.css"
+    },
+    {
       "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\css\\style.css.map",
+      "PackagePath": "staticwebassets\\css\\style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\css\\style.scss",
+      "PackagePath": "staticwebassets\\css\\style.scss"
+    },
+    {
       "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images.zip",
+      "PackagePath": "staticwebassets\\images.zip"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\about-bg.png",
+      "PackagePath": "staticwebassets\\images\\about-bg.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\about.png",
+      "PackagePath": "staticwebassets\\images\\about.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\client.jpg",
+      "PackagePath": "staticwebassets\\images\\client.jpg"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\envelope-blue.png",
+      "PackagePath": "staticwebassets\\images\\envelope-blue.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\envelope-white.png",
+      "PackagePath": "staticwebassets\\images\\envelope-white.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\g-1.png",
+      "PackagePath": "staticwebassets\\images\\g-1.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\g-2.png",
+      "PackagePath": "staticwebassets\\images\\g-2.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\g-3.png",
+      "PackagePath": "staticwebassets\\images\\g-3.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\g-4.png",
+      "PackagePath": "staticwebassets\\images\\g-4.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\g-5.png",
+      "PackagePath": "staticwebassets\\images\\g-5.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\g-6.png",
+      "PackagePath": "staticwebassets\\images\\g-6.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\g-7.png",
+      "PackagePath": "staticwebassets\\images\\g-7.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\hero.jpg",
+      "PackagePath": "staticwebassets\\images\\hero.jpg"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\location-blue.png",
+      "PackagePath": "staticwebassets\\images\\location-blue.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\location-white.png",
+      "PackagePath": "staticwebassets\\images\\location-white.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\menu.png",
+      "PackagePath": "staticwebassets\\images\\menu.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\next.png",
+      "PackagePath": "staticwebassets\\images\\next.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\prev.png",
+      "PackagePath": "staticwebassets\\images\\prev.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\s-1.png",
+      "PackagePath": "staticwebassets\\images\\s-1.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\s-2.png",
+      "PackagePath": "staticwebassets\\images\\s-2.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\s-3.png",
+      "PackagePath": "staticwebassets\\images\\s-3.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\search-icon.png",
+      "PackagePath": "staticwebassets\\images\\search-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\slider-img.png",
+      "PackagePath": "staticwebassets\\images\\slider-img.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\telephone-blue.png",
+      "PackagePath": "staticwebassets\\images\\telephone-blue.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\telephone-white.png",
+      "PackagePath": "staticwebassets\\images\\telephone-white.png"
+    },
+    {
+      "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\images\\tool.png",
+      "PackagePath": "staticwebassets\\images\\tool.png"
     },
     {
       "Id": "C:\\Users\\adamj\\Desktop\\Studia\\II_Stopien\\Semestr_1\\Mobilne\\Lab\\Weterynarze\\Weterynarze\\Weterynarze\\wwwroot\\js\\site.js",

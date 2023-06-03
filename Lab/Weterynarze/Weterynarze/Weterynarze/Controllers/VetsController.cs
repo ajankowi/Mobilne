@@ -41,6 +41,13 @@ namespace Weterynarze.Controllers
                         Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
         }
 
+        public async Task<IActionResult> ClinicLocation()
+        {
+            return _context.Vet != null ?
+                        View(await _context.Vet.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
+        }
+
         public async Task<IActionResult> New()
         {
             return _context.Vet != null ?
