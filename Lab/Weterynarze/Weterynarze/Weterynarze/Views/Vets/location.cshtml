@@ -58,6 +58,44 @@
 
     var p1 = L.latLng(51.14739, 17.08029);
     var p2 = L.latLng(52.28740, 20.98583);
+
+ 
+
+    //Moje zmiany
+
+    var searchText = "Wiedeń";
+
+    var p3 = L.latLng(12, 40);
+
+    document.addEventListener("DOMContentLoaded", function () {
+          
+        var params = new URLSearchParams();
+
+        params.append("searchText", searchText);
+
+        // Wywołanie funkcji z kontrolera za pomocą techniki AJAX po załadowaniu strony
+        fetch("/Vets/GetCoordinates?" + params.toString())
+            .then(response => response.json())
+            .then(data => {
+                // Otrzymane dane są dostępne tutaj
+                console.log(data);   
+
+                p3 = L.latLng(data.latitude, data.longitude);
+
+                console.log(p3);
+
+
+            })
+            .catch(error => {
+                console.log("Error");
+            });
+    });
+
+    //Moje zmiany
+
+
+
+
     const points = [p1, p2];
 
     //console.log("test: " + points[0] + ", " + points[1])

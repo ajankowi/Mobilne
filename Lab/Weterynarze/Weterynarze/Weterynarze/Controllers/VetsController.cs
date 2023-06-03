@@ -13,6 +13,7 @@ using Weterynarze.Data;
 using Weterynarze.Models;
 using System.Data;
 using System.Drawing;
+using Newtonsoft.Json.Linq;
 
 namespace Weterynarze.Controllers
 {
@@ -40,7 +41,56 @@ namespace Weterynarze.Controllers
                         Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
         }
 
+        public async Task<IActionResult> New()
+        {
+            return _context.Vet != null ?
+                        View(await _context.Vet.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Vet'  is null.");
+        }
 
+        [HttpGet]
+        public IActionResult GetCoordinates(string searchText)
+        {
+            string apiKey = "chDMQRlDRv0KngLYo3sXcOtNBESgx1eEU199e4Z1B7U";
+            //Console.WriteLine($"searchText: {searchText}");
+            string apiUrl = $"https://geocoder.ls.hereapi.com/6.2/geocode.json?searchtext={searchText}&gen=9&apiKey={apiKey}";
+
+            
+
+            try
+            {
+                // Wykonanie zapytania HTTP do usługi API
+                using (var client = new System.Net.WebClient())
+                {
+                                
+
+                    string responseJson = client.DownloadString(apiUrl);
+                    JObject responseObject = JObject.Parse(responseJson);
+                    JToken view = responseObject["Response"]["View"][0];
+                    JToken result = view["Result"][0];
+                    JToken location = result["Location"]["DisplayPosition"];
+
+                    double latitude = location.Value<double>("Latitude");
+                    double longitude = location.Value<double>("Longitude");
+
+                    //Console.WriteLine($"latitude: {latitude}");
+                    //Console.WriteLine($"longitude: {longitude}");
+
+                    // Zwrócenie wyników jako JSON
+                    var coordinates = new { latitude, longitude };
+
+                    //Console.WriteLine($"coordinates: {coordinates}");
+
+                    return Json(coordinates);
+                }
+            }
+            catch
+            {
+                return Json(null); // W przypadku błędu zwróć null lub odpowiednią informację
+            }
+        }
+
+        /*
         public string getCoordinatesFromAddress(string addr)
         {
             var url = "https://geocoder.ls.hereapi.com/6.2/geocode.json?searchtext=" +
@@ -68,7 +118,7 @@ namespace Weterynarze.Controllers
                 }
             }
 
-        }
+        }*/
 
 
 

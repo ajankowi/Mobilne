@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+
+    <h1>Hi Admin!</h1>
+
+    <button id="myButton">Kliknij mnie</button>
+
+    <form>
+        <label>Latitude</label>
+        <input type="text" name="lat" id="lat">
+        <br>
+        <label>Longitude</label>
+        <input type="text" name="lng" id="lng">
+    </form>
+
+</body>
+</html>
+
+
+<script>
+    
+
+    /*document.getElementById("myButton").addEventListener("click", function () {
+        // Wywołanie funkcji C# za pomocą metody fetch i ścieżki URL
+        fetch("/Vets/GetCoordinates")
+            .then(response => response.json())
+            .then(data => {
+                // Otrzymane dane są dostępne tutaj
+                console.log(data);
+
+                // Wyświetlanie danych na stronie
+                document.getElementById("lat").innerText = data.latitude;
+                document.getElementById("lng").innerText = data.longitude;
+
+                console.log(data.latitude);
+                console.log(data.longitude);
+            })
+            .catch(error => {
+                
+                console.log("Error");
+            });
+    });*/
+
+
+
+    document.getElementById("myButton").addEventListener("click", function () {
+        
+        var searchText = "Berlin";
+        
+        var params = new URLSearchParams();
+        params.append("searchText", searchText);
+
+        // Wywołanie funkcji C# za pomocą metody fetch i ścieżki URL
+        fetch("/Vets/GetCoordinates?" + params.toString())
+            .then(response => response.json())
+            .then(data => {
+                // Otrzymane dane są dostępne tutaj
+                console.log(data);
+
+                //console.log(data.latitude);
+                //console.log(data.longitude);
+            })
+            .catch(error => {
+
+                console.log("Error");
+            });
+    });
+
+
+
+</script>
