@@ -16,6 +16,7 @@
     <title>@ViewData["Title"] - Weterynarze</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Weterynarze.styles.css" asp-append-version="true" />
 </head>
 <body style=" background-color:white">
@@ -74,17 +75,17 @@
                             </div>
 
                         }  <!-- Trzeba dodac if nie jest zalogowany -->
-                            <div class="quote_btn-container  d-flex justify-content-center">
-                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">
-                                    Rejestracja
-                                </a>
-                            </div>
+                        <div class="quote_btn-container  d-flex justify-content-center">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">
+                                Rejestracja
+                            </a>
+                        </div>
                         <div class="quote_btn-container  d-flex justify-content-center">
                             <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">
                                 Zaloguj się
                             </a>
                         </div>
-                        
+
                     </div>
                 </nav>
             </div>

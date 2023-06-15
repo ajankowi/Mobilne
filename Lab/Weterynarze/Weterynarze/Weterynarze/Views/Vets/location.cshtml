@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<Weterynarze.Models.Vet>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -36,6 +38,28 @@
 
 
 <script>
+
+
+    //console.log(searchText);
+
+    // function wypiszAdresy() {
+    //    var adresy = [];
+
+    //foreach (var vet in Model)
+    // {
+    //    <text>
+    //             adresy.push('vet.Adres');
+    //    </text>
+    // }
+    //            var promises = adresy.map(adres => adresToCoords(adres));
+
+    //    Promise.all(promises)
+    //        .then(coords => {
+    //            console.log(coords);
+    //            console.log("adres 1 = " + coords[1]);
+    //        });
+    //  }
+
     // Map initialization
     var map = L.map('map').setView([51.1000000, 17.0333300], 6);
 
@@ -57,48 +81,32 @@
     var marker, circle;
 
 
-    var p1 = L.latLng(51.14739, 17.08029);
-    var p2 = L.latLng(50.7964600, 19.1240900);
-    var p3 = L.latLng(52.28740, 20.98583);
-    const points = [p1, p2, p3];
+    // var searchText = "27 Karola Dickensa Warszawa";
+    var p4;
 
-
-    //Moje zmiany
-
-    var searchText = "Wiedeń";
-
-    var p4 = L.latLng(12, 40);
-
-    document.addEventListener("DOMContentLoaded", function () {
-
+    function adresToCoords(searchText) {
         var params = new URLSearchParams();
-
         params.append("searchText", searchText);
 
         // Wywołanie funkcji z kontrolera za pomocą techniki AJAX po załadowaniu strony
-        fetch("/Vets/GetCoordinates?" + params.toString())
+        return fetch("/Vets/GetCoordinates?" + params.toString())
             .then(response => response.json())
             .then(data => {
                 // Otrzymane dane są dostępne tutaj
-                console.log(data);
-
-                p4 = L.latLng(data.latitude, data.longitude);
-
-                console.log(p4);
-
-
+                return L.latLng(data.latitude, data.longitude);
             })
             .catch(error => {
                 console.log("Error");
             });
-    });
+    }
 
-    //Moje zmiany
+    //document.addEventListener("DOMContentLoaded", function () {
+    //    wypiszAdresy();
+    //});
+    //var wynik = adresToCoords(adresy);
+    //adresToCoords(adresy);
+    //console.log(wynik)
 
-
-
-
-    console.log("test: " + points[0] + ", " + points[1])
 
     function getPosition(position) {
         // console.log(position)
@@ -122,39 +130,62 @@
         map.fitBounds(featureGroup.getBounds())
 
         console.log("Your coordinate is: Lat: " + lat + " Long: " + long + " Accuracy: " + accuracy)
+        var adresy = [];
 
-        const points_1 = [
-            [lat, long],
-            [50.79646, 19.12409],
-            [51.14739, 17.08029],
-            [52.28740, 20.98583],
-        ];
+    @foreach (var vet in Model)
+    {
+        <text>
+                adresy.push('@vet.Adres');
+        </text>
+    }
 
-        const { route, distance } = findShortestRoute(points_1);
-        console.log('Najkrótsza trasa:', route);
-        console.log('Długość trasy:', distance);
+            var promises = adresy.map(adres => adresToCoords(adres));
 
-        console.log("Punkt 1: ", route[0]);
-        console.log("Punkt 2: ", route[1]);
-        console.log("Punkt 3: ", route[2]);
-        console.log("Punkt 4: ", route[3]);
+        Promise.all(promises)
+            .then(coords => {
+                console.log(coords);
+
+                //var points_1 = coords.map(coord => [coord.lat, coord.lng]);
+                var points_1 = [[lat, long]].concat(coords.map(coord => [coord.lat, coord.lng]));
+
+                //const points_1 = [
+                //    [lat, long],
+                //    [50.79646, 19.12409],
+                //   [51.14739, 17.08029],
+                //   [52.28740, 20.98583],
+                // ];
+
+                const { route, distance } = findShortestRoute(points_1);
+                console.log('Najkrótsza trasa:', route);
+                console.log('Długość trasy:', distance);
+
+                console.log("Punkt 1: ", route[0]);
+                console.log("Punkt 2: ", route[1]);
+                console.log("Punkt 3: ", route[2]);
+                console.log("Punkt 4: ", route[3]);
 
 
+                //var waypoints = [L.latLng(lat, long)].concat(route.map(index => L.latLng(points_1[index])));
+                var waypoints = route.map(index => L.latLng(points_1[index]));
 
-        L.Routing.control({
-            waypoints: [
-                L.latLng(points_1[route[0]]),
-                L.latLng(points_1[route[1]]),
-                L.latLng(points_1[route[2]]),
-                L.latLng(points_1[route[3]])]
-        }).addTo(map);
+                L.Routing.control({
+                    waypoints: waypoints
+                }).addTo(map);
+                // L.Routing.control({
+                //     waypoints: [
+                //        L.latLng(points_1[route[0]]),
+                //        L.latLng(points_1[route[1]]),
+                //        L.latLng(points_1[route[2]]),
+                //        L.latLng(points_1[route[3]])]
+                //}).addTo(map);
 
-        //var distance = getDistance([p1.lat, p1.lng], [p2.lat, p2.lng])
+                //var distance = getDistance([p1.lat, p1.lng], [p2.lat, p2.lng])
 
 
-        //var distance = getDistance([points[0].lat, points[0].lng], [points[1].lat, points[1].lng])
+                //var distance = getDistance([points[0].lat, points[0].lng], [points[1].lat, points[1].lng])
 
-        //console.log("distance = " + distance)
+                //console.log("distance = " + distance)
+            });
     }
 
 
