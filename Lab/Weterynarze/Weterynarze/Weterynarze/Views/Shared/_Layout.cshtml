@@ -41,12 +41,12 @@
                         <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav  ">
                                 <li class="nav-item active">
-                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home </a>
+                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Strona Główna </a>
                                 </li>
                                 @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor") || User.IsInRole("Weterynarz"))
                                 {
                                     <li class="nav-item active">
-                                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy </a>
+                                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Polityka Prywatności</a>
                                     </li>
                                     <li class="nav-item active">
                                         <a class="nav-link" asp-area="" asp-controller="Vets" asp-action="Index">Zlecenia </a>
@@ -55,36 +55,39 @@
                                         <a class="nav-link" asp-area="" asp-controller="Vets" asp-action="Location">Mapa</a>
                                     </li>
                                 }
-                                <li class="nav-item active">
-                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact us</a>
-                                </li>
+
 
                             </ul>
-                            <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-                            </form>
+                            @*<form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                            </form>*@
                         </div>
 
-                        @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor") || User.IsInRole("Weterynarz"))
+                        @*@if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor") || User.IsInRole("Weterynarz"))*@
+                        @if (User.Identity.IsAuthenticated)
                         {
-                            <!-- Trzeba dodac if jest zalogowany -->
                             <div class="quote_btn-container  d-flex justify-content-center">
-                                <a class="nav-link">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout">
                                     Wyloguj
                                 </a>
                             </div>
+                        }
 
-                        }  <!-- Trzeba dodac if nie jest zalogowany -->
-                        <div class="quote_btn-container  d-flex justify-content-center">
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">
-                                Rejestracja
-                            </a>
-                        </div>
-                        <div class="quote_btn-container  d-flex justify-content-center">
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">
-                                Zaloguj się
-                            </a>
-                        </div>
+                        else
+                        {
+                            <div class="quote_btn-container  d-flex justify-content-center">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">
+                                    Rejestracja
+                                </a>
+                            </div>
+                            <div class="quote_btn-container  d-flex justify-content-center">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">
+                                    Zaloguj się
+                                </a>
+                            </div>
+                        }
+
+
 
                     </div>
                 </nav>
