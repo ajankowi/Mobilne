@@ -39,10 +39,21 @@
             @Html.DisplayFor(model => model.Adres)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Priorytet)
+            <text>Status zlecenia</text>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Priorytet)
+            @if (Model.Priorytet == 1)
+            {
+                <text>Nowe zlecenie</text>
+            }
+            @if (Model.Priorytet == 2)
+            {
+                <text>W trakcie realizacji</text>
+            }
+            @if (Model.Priorytet == 3)
+            {
+                <text>Zrealizowane</text>
+            }
         </dd>
     </dl>
 

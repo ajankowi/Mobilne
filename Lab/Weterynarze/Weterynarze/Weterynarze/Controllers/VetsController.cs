@@ -62,14 +62,14 @@ namespace Weterynarze.Controllers
             //Console.WriteLine($"searchText: {searchText}");
             string apiUrl = $"https://geocoder.ls.hereapi.com/6.2/geocode.json?searchtext={searchText}&gen=9&apiKey={apiKey}";
 
-            
+
 
             try
             {
                 // Wykonanie zapytania HTTP do usługi API
                 using (var client = new System.Net.WebClient())
                 {
-                                
+
 
                     string responseJson = client.DownloadString(apiUrl);
                     JObject responseObject = JObject.Parse(responseJson);
@@ -180,7 +180,7 @@ namespace Weterynarze.Controllers
         }
 
         // GET: Vets/Create
-       
+
 
 
         public IActionResult Create()
@@ -273,6 +273,7 @@ namespace Weterynarze.Controllers
             }
 
             return View(vet);
+            Console.WriteLine("usunieto");
         }
 
         // POST: Vets/Delete/5
@@ -287,16 +288,17 @@ namespace Weterynarze.Controllers
             var vet = await _context.Vet.FindAsync(id);
             if (vet != null)
             {
+
                 _context.Vet.Remove(vet);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool VetExists(int id)
         {
-          return (_context.Vet?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Vet?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

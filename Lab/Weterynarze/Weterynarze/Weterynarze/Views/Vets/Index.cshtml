@@ -11,7 +11,7 @@
     {
         <a class="button button1" asp-action="Create">Utwórz zlecenie</a>
     }
-    
+
 </p>
 <table class="table">
     <thead>
@@ -32,50 +32,104 @@
                 @Html.DisplayNameFor(model => model.Adres)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Priorytet)
+                <text>Status zlecenia</text>
+                @*@Html.DisplayNameFor(model => model.Priorytet)*@
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Imie)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nazwisko)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Zwierze)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Objawy)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Adres)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Priorytet)
-                </td>
-                <td>
-                    @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor"))
-                    {
+            @if (item.Priorytet == 2 && (User.IsInRole("Weterynarz")))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nazwisko)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Zwierze)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Objawy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adres)
+                    </td>
+                    <td>
+                        W trakcie realizacji
+                    </td>
+                    <td>
+                        <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+
+                        @* @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor"))
+                {
+                <a class="button button1 zsize" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                <a class="button button1 zsize" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                }
+                else if (User.IsInRole("Weterynarz"))
+                {
+                <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                }*@
+
+                    </td>
+                </tr>
+            }
+            @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor"))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nazwisko)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Zwierze)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Objawy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adres)
+                    </td>
+                    <td>
+                        @if (item.Priorytet == 1)
+                        {
+                            <text>Nowe zlecenie</text>
+                        }
+                        @if (item.Priorytet == 2)
+                        {
+                            <text>W trakcie realizacji</text>
+                        }
+                        @if (item.Priorytet == 3)
+                        {
+                            <text>Zrealizowane</text>
+                        }
+                        @*@Html.DisplayFor(modelItem => item.Priorytet)*@
+                    </td>
+                    <td>
+                        @* @if (User.IsInRole("Admin") || User.IsInRole("Dystrybutor"))
+                {
+
+                }
+                else if (User.IsInRole("Weterynarz"))
+                {
+                <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                }*@
                         <a class="button button1 zsize" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
                         <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
                         <a class="button button1 zsize" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
-                    }
-                    else if (User.IsInRole("Weterynarz"))
-                    {
-                        <a class="button button1 zsize" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
-                    }
 
-
-
-
-                </td>
-            </tr>
+                    </td>
+                </tr>
+            }
         }
+
     </tbody>
 </table>
